@@ -1,2 +1,4 @@
 var moment = require('moment');
-moment.locale('it');
+
+var momentInstance = new moment();
+momentInstance.locale('it');

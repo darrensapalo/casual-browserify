@@ -1,11 +1,13 @@
 var moment = require('moment');
-moment.locale('de');
+
+var momentInstance = new moment();
+momentInstance.locale('de');
 
 var provider = {
 
 	date: function(format) {
 		format = format || 'DD.MM.YYYY';
-		return this.moment.format(format);
+		return momentInstance.format(format);
 	}
 };
 

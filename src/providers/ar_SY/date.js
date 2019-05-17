@@ -1,5 +1,7 @@
 var moment = require('moment');
-moment.locale('ar');
+
+var momentInstance = new moment();
+momentInstance.locale('ar');
 
 var provider = {
 	centuries: ['الأول','الثاني','الثالث','الرابع','الخامس','السادس','السابع','الثامن','التاسع','العاشر','الحادي عشر','الثاني عشر','الثالث عشر','الرابع عشر','الخامس عشر','السادس عشر','السابع عشر','الثامن عشر','التاسع عشر','العشرون','الواحد والعشرون'],
@@ -11,17 +13,17 @@ var provider = {
 	},
 
 	moment: function() {
-		return moment.unix(this.unix_time);
+		return momentInstance.unix(this.unix_time);
 	},
 
 	date: function(format) {
 		format = format || 'L';
-		return this.moment.format(format);
+		return momentInstance.format(format);
 	},
 
 	time: function(format) {
 		format = format;
-		return this.moment.format(format);
+		return momentInstance.format(format);
 	},
 
 	century: function() {
@@ -33,27 +35,27 @@ var provider = {
 	},
 
 	day_of_year: function() {
-		return this.moment.dayOfYear();
+		return momentInstance.dayOfYear();
 	},
 
 	day_of_month: function() {
-		return this.moment.format('D');
+		return momentInstance.format('D');
 	},
 
 	day_of_week: function() {
-		return this.moment.format('d');
+		return momentInstance.format('d');
 	},
 
 	month_number: function() {
-		return this.moment.format('M');
+		return momentInstance.format('M');
 	},
 
 	month_name: function() {
-		return this.moment.format('MMMM');
+		return momentInstance.format('MMMM');
 	},
 
 	year: function() {
-		return this.moment.format('YYYY');
+		return momentInstance.format('YYYY');
 	},
 
 	timezone: function() {
